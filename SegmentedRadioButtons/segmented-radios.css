@@ -1,0 +1,29 @@
+/* 
+The strategy is to hide the native radio buttons, then wrap the button
+labels in a span and style those using the sibling selector.
+*/
+input.segmented-radio {
+	display: none;
+}
+
+input.segmented-radio + span {
+	display: inline-block;
+	cursor: pointer;
+	transition: background-color 0.4s;
+
+	padding: 0.5em 0.75em;
+	margin: 0 2px 0 0;
+	background-color: #ccc;
+
+	/* Floating avoids visible whitespace between inline-block elements. */
+	float: left;
+}
+
+input.segmented-radio:checked + span {
+	background-color: #0b486b;
+	color: #fff;
+}
+
+input.segmented-radio:not(:checked) + span:hover {
+	background-color: #bbb;
+}
