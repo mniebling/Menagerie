@@ -1,0 +1,27 @@
+/* 
+Wrap the input & label in a position: relative div, then
+add top padding to the input and position the label absolutely.
+*/
+input[type=text] {
+	height: 35px;
+	width: 300px;
+	padding: 1% 0.5% 0 0.5%;
+	border: 1px solid #ccc;
+}
+
+label {
+	position: absolute;
+
+	/* Need fixed sizes on the parent to position via percentage */
+	top: 5%;
+	left: 0.5%;
+
+	font-size: 12px;
+	font-weight: bold;
+	color: #777;
+	text-transform: uppercase;
+}
+
+div.field {
+	position: relative;
+}
