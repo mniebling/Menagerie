@@ -28,14 +28,76 @@
 
 .animate-circle {
   -webkit-animation-name: shrink;
+  -moz-animation-name: shrink;
+  -o-animation-name: shrink;
+  animation-name: shrink;
+
   -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+
   -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  -o-animation-timing-function: linear;
+  animation-timing-function: linear;
 }
 
 @-webkit-keyframes shrink {
 
   /* change size from 100% to 0% */
   /* change position from (0, 0) to center */
+  from {
+    width: 50px;
+    height: 50px;  
+    left: 0px;
+    top: 0px;
+  }
+
+  to {
+    width: 0px;
+    height: 0px;
+    left: 25px;
+    top: 25px;
+  }
+}
+
+@-moz-keyframes shrink {
+
+  from {
+    width: 50px;
+    height: 50px;  
+    left: 0px;
+    top: 0px;
+  }
+
+  to {
+    width: 0px;
+    height: 0px;
+    left: 25px;
+    top: 25px;
+  }
+}
+
+@-o-keyframes shrink {
+
+  from {
+    width: 50px;
+    height: 50px;  
+    left: 0px;
+    top: 0px;
+  }
+
+  to {
+    width: 0px;
+    height: 0px;
+    left: 25px;
+    top: 25px;
+  }
+}
+
+@keyframes shrink {
+
   from {
     width: 50px;
     height: 50px;  
