@@ -1,0 +1,124 @@
+/*
+The strategy is to hide the native radio buttons, then style the label
+instead to give it a visible target. If you're correctly using "for" on
+the label tags, clicking/tapping them will toggle the input as well.
+
+We still want the input to be selectable/tabbable for accessibility
+reasons, so we'll just position the actual input way offscreen. All the
+magic will happen on the label instead.
+*/
+input[type="radio"],
+input[type="checkbox"] {
+	position: absolute;
+	left: -999em;
+}
+
+.binary-input-label {
+	display: block;
+	margin-bottom: 0.5rem;
+	background-color: #eee;
+	padding: 0.5rem;
+	border-radius: 7px;
+	cursor: pointer;
+	transition: all 0.4s;
+}
+
+/*
+For some visual feedback for tab selection, we hook into selected but
+style the label instead.
+*/
+input[type="radio"]:focus + .binary-input-label,
+input[type="checkbox"]:focus + .binary-input-label {
+	box-shadow: 0 0 4px #637626;
+}
+
+
+/*
+The 'before' pseudo-selector handles the FA checkmark. This is simpler if
+you have a background image instead, but let's use an icon font, right?
+*/
+.binary-input-label:before {
+	/* Pasted in the font awesome "fa" class properties here. */
+	display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0);
+
+  /* Fixed width and center align prevent the icon from jumping around */
+  width: 1.5rem;
+  text-align: center;
+
+  /* Animate changes; don't forget to vendor-prefix */
+  transition: all 0.4s;
+}
+
+input[type="radio"]:checked + .binary-input-label:before {
+	content: "\f058"; /* fa-check-circle */
+}
+
+input[type="radio"]:not(:checked) + .binary-input-label:before {
+	content: "\f1db"; /* fa-circle-thin */
+}
+
+input[type="checkbox"]:checked + .binary-input-label:before {
+	content: "\f14a"; /* fa-check-square */
+}
+
+input[type="checkbox"]:not(:checked) + .binary-input-label:before {
+	content: "\f096"; /* fa-square-o */
+}
+
+
+/* Use modernizr etc to make this a touch-active style as well */
+.binary-input-label:hover {
+	background-color: #ddd;
+}
+
+
+/* Depressed animation for the button */
+.binary-input-label:active {
+	transform: scale(0.95);
+}
+
+/* Click effect: Blur the icon */
+.binary-input-label.blur:active:before {
+	opacity: 0.5;
+	color: transparent;
+	text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Click effect: Bounce the icon with a slight twist */
+.binary-input-label.swing {
+	overflow-x: hidden;
+}
+
+.binary-input-label.swing:active:before {
+	opacity: 0;
+	transform: translateX(-4rem) rotate(-0.25turn);
+}
+
+
+/* Demo visual styling */
+.binary-button-group {
+	max-width: 16rem;
+	margin-bottom: 5rem;
+}
+
+input:not(:checked) + .binary-input-label:before {
+	color: #999;
+}
+
+input:checked + .binary-input-label,
+input:checked + .binary-input-label:before {
+	background-color: #e3ecc6;
+	color: #637626;
+}
+
+p {
+	max-width: 32rem;
+	line-height: 1.4;
+	margin-bottom: 2rem;
+}

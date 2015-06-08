@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Segmented Radio Buttons</title>
+
+	<link rel="stylesheet" href="radio-buttons.css" />
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+	<style>
+		body {
+			font-family: Helvetica, Arial, sans-serif;
+			margin: 5%;
+		}
+	</style>
+</head>
+
+
+<body>
+
+	<p>Try tabbing. Radio buttons are a group, so you use the arrow keys to move between them. For checkboxes, every item is a tab stop.</p>
+
+	<div class="binary-button-group">
+
+		<input type="radio" class="radio-button" name="group" id="radio1" value="Option 1" checked />
+		<label for="radio1" class="binary-input-label blur">
+			<span>Option 1 (blur)</span>
+		</label>
+
+		<input type="radio" class="radio-button" name="group" id="radio2" value="Option 2" />
+		<label for="radio2" class="binary-input-label swing">
+			<span>Option 2 (swing)</span>
+		</label>
+
+		<input type="radio" class="radio-button" name="group" id="radio3" value="Option 3" />
+		<label for="radio3" class="binary-input-label">
+			<span>Option 3 (plain)</span>
+		</label>
+
+	</div>
+
+
+	<div class="binary-button-group">
+
+		<input type="checkbox" class="check-button" name="group2" id="checkbox1" value="Checkbox 1" checked />
+		<label for="checkbox1" class="binary-input-label blur">
+			<span>Checkbox 1 (blur)</span>
+		</label>
+
+		<input type="checkbox" class="check-button" name="group2" id="checkbox2" value="Checkbox 2" />
+		<label for="checkbox2" class="binary-input-label swing">
+			<span>Checkbox 2 (swing)</span>
+		</label>
+
+		<input type="checkbox" class="check-button" name="group2" id="checkbox3" value="Checkbox 3" />
+		<label for="checkbox3" class="binary-input-label">
+			<span>Checkbox 3 (plain)</span>
+		</label>
+
+	</div>
+
+
+</body>
+</html>
